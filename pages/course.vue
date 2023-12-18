@@ -51,7 +51,16 @@
       </div>
 
       <div class="prose p-12 rounded-md w-[65ch]">
-        <NuxtPage />
+        <NuxtErrorBoundary>
+          <NuxtPage />
+          <template v-slot:error="{ error }">
+            <p>
+              Some error:
+              <code>{{ error }}</code>
+              <button @click="resetError(error)">reset error</button>
+            </p>
+          </template>
+        </NuxtErrorBoundary>
       </div>
     </div>
   <!-- </div> -->
@@ -59,6 +68,10 @@
 
 <script setup>
   const course = useCourse();
+
+  function resetError(error) {
+    error.value = null;
+  }
 </script>
 
 <style scoped>
