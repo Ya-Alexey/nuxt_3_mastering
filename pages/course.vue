@@ -1,14 +1,12 @@
 <template>
-  <!-- <div
-    class="p-12 bg-gray-100 w-full h-full min-h-screen flex flex-col items-center"
-  > -->
-    <div class="prose mb-12">
+  <div>
+    <div class="mb-4 flex justify-between items-center w-full">
       <h1>
         <span class="font-medium">
-          Course:
-          <span class="font-bold">Mastering Nuxt 3</span>
+          <span class="font-bold">{{ title }}</span>
         </span>
       </h1>
+      <UserCard />
     </div>
 
     <div class="flex flex-row justify-center flex-grow">
@@ -18,7 +16,7 @@
         <h3>Chapters</h3>
         <div
           class="space-y-1 mb-4 flex flex-col"
-          v-for="(chapter, index) in course.chapters"
+          v-for="(chapter, index) in chapters"
           :key="chapter.slug"
         >
           <h4 class="flex justify-between items-center">
@@ -63,11 +61,11 @@
         </NuxtErrorBoundary>
       </div>
     </div>
-  <!-- </div> -->
+  </div>
 </template>
 
 <script setup>
-  const course = useCourse();
+  const { chapters, title } = useCourse();
 
   function resetError(error) {
     error.value = null;

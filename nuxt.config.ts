@@ -1,7 +1,12 @@
-// https://v3.nuxtjs.org/api/configuration/nuxt.config
+// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  devtools: { enabled: false },
   modules: [
     '@nuxtjs/tailwindcss',
     '@vueuse/nuxt',
+    '@nuxtjs/supabase',
   ],
-});
+  supabase: {
+    redirect: false,
+  }
+})
