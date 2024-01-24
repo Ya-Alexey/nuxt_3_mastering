@@ -17,7 +17,11 @@
     "@vueuse/core": "^10.7.0",
     "@vueuse/nuxt": "^10.7.0",
     "nuxt": "^3.9.0",
+    "prisma": "^5.8.1",
     "vue": "^3.3.13",
     "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.8.1"
   }
 }

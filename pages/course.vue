@@ -1,9 +1,9 @@
-<template>
+  <template>
   <div>
     <div class="mb-4 flex justify-between items-center w-full">
       <h1>
         <span class="font-medium">
-          <span class="font-bold">{{ title }}</span>
+          <span class="font-bold">{{ course.title }}</span>
         </span>
       </h1>
       <UserCard />
@@ -16,7 +16,7 @@
         <h3>Chapters</h3>
         <div
           class="space-y-1 mb-4 flex flex-col"
-          v-for="(chapter, index) in chapters"
+          v-for="(chapter, index) in course.chapters"
           :key="chapter.slug"
         >
           <h4 class="flex justify-between items-center">
@@ -63,12 +63,15 @@
     </div>
   </div>
 </template>
-
+ 
 <script setup>
-  const { chapters, title } = useCourse();
+  const course = await useCourse();
+  const firstLesson = await useFirstLesson();
 
-  function resetError(error) {
+  async function resetError(error) {
+    await navigateTo(firstLesson.path)
     error.value = null;
+    // error.value = null;
   }
 </script>
 
