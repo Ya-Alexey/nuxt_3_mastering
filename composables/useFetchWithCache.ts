@@ -12,10 +12,9 @@ export default async <T>(url: string) => {
   if (!cached.value) {
     const { data, error } = await useFetch<T>(
       url,
-      // конкретные поля
-      // {
-      //   pick: ['title', 'number'],
-      // }
+      {
+        headers: useRequestHeaders(['cookie']), 
+      }
     );
     if (error.value) {
       throw createError({

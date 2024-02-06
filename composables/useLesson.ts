@@ -1,4 +1,5 @@
 import type { LessonWithPath } from '~/types/course'; 
+// import { Lesson } from '@prisma/client';
 
 export default async (
   chapterSlug: string,
