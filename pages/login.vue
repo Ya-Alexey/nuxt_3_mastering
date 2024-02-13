@@ -16,14 +16,10 @@
   const supabase = useSupabaseClient();
   const user = useSupabaseUser();
 
-  console.log('user', user.value);
-  
-  
+  // console.log('user', user.value);
 
   watchEffect(async () => {
     if (user.value) {
-      console.log('watchEffect');
-      
       await navigateTo(query.redirectTo as string, {
         replace: true,
       });

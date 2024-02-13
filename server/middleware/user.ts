@@ -5,6 +5,6 @@ export default defineEventHandler(async (event) => {
     const user = await serverSupabaseUser(event);
     event.context.user = user;
   } catch (error) {
-    console.log('middleware user err: ', error);
+    console.error('middleware user err: ', error);
   }
 });

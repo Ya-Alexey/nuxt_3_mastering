@@ -11,8 +11,6 @@ const prisma = new PrismaClient();
 export default defineEventHandler(async (event) => {
   // We allow users to access the first lesson without being logged in
   if (event.context.params?.chapterSlug !== '1-chapter-1') {
-    console.log('!1-chapter-1');
-    
     await protectRoute(event);
   }
   

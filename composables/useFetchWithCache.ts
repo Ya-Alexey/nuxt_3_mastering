@@ -24,9 +24,10 @@ export default async <T>(url: string) => {
     }
 
     cached.value = data.value as T;
-  } else {
-    console.log(`cache from ${url}`);
   }
+  // else {
+  //   console.log(`cache from ${url}`);
+  // }
 
   return cached;
 }
